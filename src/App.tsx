@@ -4,6 +4,7 @@ import MainLayout from './layout/MainLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import ProjectDetails from './pages/ProjectDetails';
 import Timeline from './pages/Timeline';
 import Services from './pages/Services';
 import Contacts from './pages/Contacts';
@@ -25,7 +26,7 @@ const App: React.FC = () => {
           <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/cases" element={<PlaceholderPage title="Cases" />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/certificates" element={<PlaceholderPage title="Certificates" />} />
           <Route path="/services" element={<Services />} />

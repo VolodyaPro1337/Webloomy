@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Github, ExternalLink } from 'lucide-react';
 import type { Project } from '../data/projects';
 
@@ -9,13 +10,24 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/projects/${project.id}`);
+    };
+
+    const handleLinkClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative rounded-xl overflow-hidden bg-bg-card border border-white/10 hover:border-neon-cyan/50 transition-colors duration-500"
+            onClick={handleCardClick}
+            className="group relative rounded-xl overflow-hidden bg-bg-card border border-white/10 hover:border-neon-cyan/50 transition-colors duration-500 cursor-pointer"
         >
             {/* Image Overlay */}
             <div className="relative h-48 overflow-hidden">
@@ -27,12 +39,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 />
                 <div className="absolute top-4 right-4 z-20 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/50 rounded-full hover:bg-neon-cyan hover:text-black transition-colors backdrop-blur-sm">
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleLinkClick}
+                            className="p-2 bg-black/50 rounded-full hover:bg-neon-cyan hover:text-black transition-colors backdrop-blur-sm"
+                        >
                             <Github size={18} />
                         </a>
                     )}
                     {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="p-2 bg-black/50 rounded-full hover:bg-neon-purple hover:text-white transition-colors backdrop-blur-sm">
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleLinkClick}
+                            className="p-2 bg-black/50 rounded-full hover:bg-neon-purple hover:text-white transition-colors backdrop-blur-sm"
+                        >
                             <ExternalLink size={18} />
                         </a>
                     )}
