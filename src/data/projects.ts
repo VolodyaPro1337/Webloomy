@@ -11,6 +11,15 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: 'wishlist',
+        title: 'New Year Wishlist',
+        description: 'Праздничный сервис вишлистов с анонимной авторизацией, PIN-защитой и AI-обогащением товаров. Атмосферный UI с эффектами снега.',
+        tech: ['Next.js', 'PostgreSQL', 'Prisma', 'Framer Motion', 'Docker'],
+        imageUrl: 'https://images.unsplash.com/photo-1512389142860-9c449d91761d?q=80&w=2535&auto=format&fit=crop',
+        liveUrl: 'https://wishlist.webloomy.ru',
+        featured: true,
+    },
+    {
         id: 'roskarniz',
         title: 'Roskarniz',
         description: 'Сложный e-commerce проект с backend + frontend, продуманной архитектурой и стилем. Полностью разработанный интернет-магазин с нуля.',
