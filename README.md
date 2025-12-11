@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+# Webloomy — Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Status](https://img.shields.io/badge/Status-Live-22c55e?style=flat) ![Stack](https://img.shields.io/badge/Stack-React%20%2B%20Vite%20%2B%20TypeScript-0ea5e9?style=flat) ![UI](https://img.shields.io/badge/UI-TailwindCSS-14b8a6?style=flat) ![FX](https://img.shields.io/badge/FX-Framer%20Motion-8b5cf6?style=flat)
 
-Currently, two official plugins are available:
+> A polished one-page portfolio with cases, services, skills, timeline, and contact touchpoints.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Highlights
+- Sections: Hero, Projects, Services, Skills, Timeline, Certificates, Contacts.
+- Responsive grid with gradients, glassy panels, and hover/scroll animations.
+- Content driven by `src/data/*` (projects, services, skills, timeline) — easy to update.
+- Tailwind + Framer Motion for fast styling and smooth interactions.
 
-## React Compiler
+## 🛠 Tech Stack
+- React 18, Vite, TypeScript
+- Tailwind CSS
+- Framer Motion
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Local Development
+```bash
+npm ci
+npm run dev
+# open http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Production
+```bash
+npm ci
+npm run build    # outputs to dist/
+npm run preview  # quick check of the build
 ```
+
+## 🗂 Structure
+- `src/components` — sections and shared UI blocks
+- `src/data` — projects, services, skills, timeline content
+- `public` — static assets
+
+## 🔗 Links
+- Live: https://webloomy.ru (example)
+- Repo: https://github.com/VolodyaPro1337/Webloomy
