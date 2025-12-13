@@ -112,7 +112,7 @@ const ProjectDetails: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="md:col-span-1 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
+                        className="md:col-span-1 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl h-fit"
                     >
                         <div className="flex items-center gap-3 mb-6">
                             <Layers className="text-neon-cyan" size={24} />
@@ -130,22 +130,37 @@ const ProjectDetails: React.FC = () => {
                         </div>
                     </motion.div>
 
-                    {/* Key Features / Challenge - Placeholder for now until we have dedicated data */}
+                    {/* Overview & Features */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="md:col-span-2 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
+                        className="md:col-span-2 space-y-8"
                     >
-                        <div className="flex items-center gap-3 mb-6">
-                            <Code className="text-neon-purple" size={24} />
-                            <h3 className="text-xl font-bold text-white">Overview</h3>
+                        <div className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Code className="text-neon-purple" size={24} />
+                                <h3 className="text-xl font-bold text-white">Overview</h3>
+                            </div>
+                            <p className="text-gray-300 leading-relaxed text-lg">
+                                {project.longDescription || project.description}
+                            </p>
                         </div>
-                        <p className="text-gray-400 leading-relaxed">
-                            This project showcases modern web development practices, focusing on performance, accessibility, and user experience.
-                            It demonstrates the capability to deliver complex features wrapped in a polished interface.
-                        </p>
+
+                        {project.features && (
+                            <div className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+                                <h3 className="text-xl font-bold text-white mb-4">Key Features</h3>
+                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {project.features.map((feature, idx) => (
+                                        <li key={idx} className="flex items-start text-gray-400">
+                                            <span className="mr-2 text-neon-cyan">•</span>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </motion.div>
                 </div>
             </div>

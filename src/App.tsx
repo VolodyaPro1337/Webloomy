@@ -9,6 +9,8 @@ import Timeline from './pages/Timeline';
 import Services from './pages/Services';
 import Contacts from './pages/Contacts';
 import Resume from './pages/Resume';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import PlaceholderPage from './components/PlaceholderPage';
 
 const LayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -30,6 +32,8 @@ const App: React.FC = () => {
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/certificates" element={<PlaceholderPage title="Certificates" />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </LayoutWrapper>
